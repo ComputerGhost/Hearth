@@ -1,6 +1,7 @@
 #include <cassert>
 #include <exception>
 
+#include "Core/Engine.hpp"
 #include "Platform/Platform.hpp"
 #include "Platform/Window.hpp"
 #include "Config.hpp"
@@ -21,9 +22,11 @@ int main()
 		window.setFullscreen(display_config.is_fullscreen);
 		window.makeCurrent();
 
+		Core::Engine engine;
 		LOG_INFO("Engine is running.");
 
 		while (!window.shouldClose()) {
+			engine.tick();
 			window.swapBuffers();
 			glfwPollEvents();
 		}
