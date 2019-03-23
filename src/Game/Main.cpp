@@ -1,3 +1,4 @@
+#include <glad/glad.h>
 #include <cassert>
 #include <exception>
 
@@ -21,6 +22,9 @@ int main()
 		window.setFullscreenSize(display_config.fullscreen_size);
 		window.setFullscreen(display_config.is_fullscreen);
 		window.makeCurrent();
+
+		if (!gladLoadGL())
+			throw new std::runtime_error("Unable to initialize OpenGL context.");
 
 		Core::Engine engine;
 		LOG_INFO("Engine is running.");

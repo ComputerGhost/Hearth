@@ -10,7 +10,6 @@ namespace Core
 			// update everything here
 		}
 
-		// render stuff here
-		// use timer.getLeftoverTime() to offset items
+		renderer.render(timer.getLeftoverTime());
 	}
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "EngineTimer.hpp"
+#include "Renderer.hpp"
 
 namespace Core
 {
@@ -14,5 +15,6 @@ namespace Core
 
 	private:
 		EngineTimer timer;
+		Renderer renderer;
 	};
 }

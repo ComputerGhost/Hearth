@@ -99,7 +99,7 @@
       <ObjectFileName>$(IntDir)%(RelativeDir)\</ObjectFileName>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glad.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)..\third_party\lib32d\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -138,7 +138,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glad.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)..\third_party\lib32\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -165,8 +165,12 @@
   <ItemGroup>
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="ConfigReader.cpp" />
+    <ClCompile Include="Core\AssetManager.cpp" />
+    <ClCompile Include="Core\AssetReference.cpp" />
+    <ClCompile Include="Core\AssetReference.hpp" />
     <ClCompile Include="Core\Engine.cpp" />
     <ClCompile Include="Core\EngineTimer.cpp" />
+    <ClCompile Include="Core\Renderer.cpp" />
     <ClCompile Include="Formats\IniReader.cpp" />
     <ClCompile Include="Formats\IniWriter.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -179,8 +183,11 @@
   <ItemGroup>
     <ClInclude Include="Config.hpp" />
     <ClInclude Include="ConfigReader.hpp" />
+    <ClInclude Include="Core\Asset.hpp" />
+    <ClInclude Include="Core\AssetManager.hpp" />
     <ClInclude Include="Core\Engine.hpp" />
     <ClInclude Include="Core\EngineTimer.hpp" />
+    <ClInclude Include="Core\Renderer.hpp" />
     <ClInclude Include="Formats\FormatException.hpp" />
     <ClInclude Include="Formats\IniReader.hpp" />
     <ClInclude Include="Formats\IniWriter.hpp" />
