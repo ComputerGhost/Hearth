@@ -165,12 +165,11 @@
   <ItemGroup>
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="ConfigReader.cpp" />
-    <ClCompile Include="Core\AssetManager.cpp" />
-    <ClCompile Include="Core\AssetReference.cpp" />
-    <ClCompile Include="Core\AssetReference.hpp" />
     <ClCompile Include="Core\Engine.cpp" />
     <ClCompile Include="Core\EngineTimer.cpp" />
     <ClCompile Include="Core\Renderer.cpp" />
+    <ClCompile Include="Core\Shader.cpp" />
+    <ClCompile Include="Core\ShaderProgram.cpp" />
     <ClCompile Include="Formats\IniReader.cpp" />
     <ClCompile Include="Formats\IniWriter.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -183,11 +182,12 @@
   <ItemGroup>
     <ClInclude Include="Config.hpp" />
     <ClInclude Include="ConfigReader.hpp" />
-    <ClInclude Include="Core\Asset.hpp" />
-    <ClInclude Include="Core\AssetManager.hpp" />
     <ClInclude Include="Core\Engine.hpp" />
     <ClInclude Include="Core\EngineTimer.hpp" />
     <ClInclude Include="Core\Renderer.hpp" />
+    <ClInclude Include="Core\Shader.hpp" />
+    <ClInclude Include="Core\ShaderProgram.hpp" />
+    <ClInclude Include="Core\ShaderType.hpp" />
     <ClInclude Include="Formats\FormatException.hpp" />
     <ClInclude Include="Formats\IniReader.hpp" />
     <ClInclude Include="Formats\IniWriter.hpp" />

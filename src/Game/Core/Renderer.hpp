@@ -2,6 +2,8 @@
 
 #include <glad/glad.h>
 
+#include "Shaders.hpp"
+
 namespace Core
 {
 	class Renderer
@@ -15,6 +17,6 @@ namespace Core
 		// temporary junk while we test stuff out
 		GLuint vertex_array_id;
 		GLuint vertex_buffer;
-		GLuint program_id;
+		ShaderProgram program;
 	};
 }
