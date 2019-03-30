@@ -1,5 +1,7 @@
 #include "Renderer.hpp"
 
+#include "ShaderProgram.hpp"
+
 namespace Core
 {
 	namespace

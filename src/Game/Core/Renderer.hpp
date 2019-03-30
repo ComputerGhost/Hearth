@@ -2,7 +2,7 @@
 
 #include <glad/glad.h>
 
-#include "Shaders.hpp"
+#include "ShaderProgram.hpp"
 
 namespace Core
 {
