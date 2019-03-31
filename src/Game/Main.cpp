@@ -24,7 +24,7 @@ int main()
 		window.makeCurrent();
 
 		if (!gladLoadGL())
-			throw new std::runtime_error("Unable to initialize OpenGL context.");
+			throw std::runtime_error("Unable to initialize OpenGL context.");
 
 		Core::Engine engine;
 		LOG_INFO("Engine is running.");

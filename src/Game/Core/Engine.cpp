@@ -6,10 +6,19 @@ namespace Core
 	{
 		timer.setToElapsedTime();
 
-		while (timer.useTime()) {
-			// update everything here
-		}
+		while (timer.useTime())
+			updateComponents();
 
+		render();
+	}
+
+	void Engine::updateComponents()
+	{
+		// We'll call the components directly here.
+	}
+
+	void Engine::render()
+	{
 		renderer.render(timer.getLeftoverTime());
 	}
 }
