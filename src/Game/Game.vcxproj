@@ -178,6 +178,7 @@
     <ClCompile Include="Platform\Monitor.cpp" />
     <ClCompile Include="Platform\Platform.cpp" />
     <ClCompile Include="Platform\Window.cpp" />
+    <ClCompile Include="Scenes\TestScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.hpp" />
@@ -185,6 +186,7 @@
     <ClInclude Include="Core\Engine.hpp" />
     <ClInclude Include="Core\EngineTimer.hpp" />
     <ClInclude Include="Core\Renderer.hpp" />
+    <ClInclude Include="Core\Scene.hpp" />
     <ClInclude Include="Core\Shader.hpp" />
     <ClInclude Include="Core\ShaderProgram.hpp" />
     <ClInclude Include="Core\ShaderType.hpp" />
@@ -196,6 +198,7 @@
     <ClInclude Include="Platform\Monitor.hpp" />
     <ClInclude Include="Platform\Platform.hpp" />
     <ClInclude Include="Platform\Window.hpp" />
+    <ClInclude Include="Scenes\TestScene.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

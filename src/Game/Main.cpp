@@ -5,6 +5,7 @@
 #include "Core/Engine.hpp"
 #include "Platform/Platform.hpp"
 #include "Platform/Window.hpp"
+#include "Scenes/TestScene.hpp"
 #include "Config.hpp"
 #include "Logging.hpp"
 
@@ -12,7 +13,7 @@ int main()
 {
 	try {
 
-		LOG_INFO("Engine is starting.");
+		LOG_INFO("Initializing system.");
 		loadConfig();
 
 		Platform::Platform platform;
@@ -26,9 +27,15 @@ int main()
 		if (!gladLoadGL())
 			throw std::runtime_error("Unable to initialize OpenGL context.");
 
+		LOG_INFO("Starting Engine.");
 		Core::Engine engine;
-		LOG_INFO("Engine is running.");
+		{
+			auto scene = std::make_unique<Scenes::TestScene>();
+			scene->initialize();
+			engine.setScene(std::move(scene));
+		}
 
+		LOG_INFO("Engine is running.");
 		while (!window.shouldClose()) {
 			engine.tick();
 			window.swapBuffers();
