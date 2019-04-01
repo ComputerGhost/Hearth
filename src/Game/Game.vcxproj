@@ -168,8 +168,8 @@
     <ClCompile Include="Core\Engine.cpp" />
     <ClCompile Include="Core\EngineTimer.cpp" />
     <ClCompile Include="Core\Renderer.cpp" />
-    <ClCompile Include="Core\Shader.cpp" />
-    <ClCompile Include="Core\ShaderProgram.cpp" />
+    <ClCompile Include="ResourceTypes\Shader.cpp" />
+    <ClCompile Include="ResourceTypes\ShaderProgram.cpp" />
     <ClCompile Include="Formats\IniReader.cpp" />
     <ClCompile Include="Formats\IniWriter.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -187,9 +187,9 @@
     <ClInclude Include="Core\EngineTimer.hpp" />
     <ClInclude Include="Core\Renderer.hpp" />
     <ClInclude Include="Core\Scene.hpp" />
-    <ClInclude Include="Core\Shader.hpp" />
-    <ClInclude Include="Core\ShaderProgram.hpp" />
-    <ClInclude Include="Core\ShaderType.hpp" />
+    <ClInclude Include="ResourceTypes\Shader.hpp" />
+    <ClInclude Include="ResourceTypes\ShaderProgram.hpp" />
+    <ClInclude Include="ResourceTypes\ShaderType.hpp" />
     <ClInclude Include="Formats\FormatException.hpp" />
     <ClInclude Include="Formats\IniReader.hpp" />
     <ClInclude Include="Formats\IniWriter.hpp" />

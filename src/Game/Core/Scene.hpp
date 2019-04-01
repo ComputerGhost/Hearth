@@ -13,8 +13,7 @@ namespace Core
 
 		virtual void onAttach() {}
 		virtual void onUpdate(double elapsed) {}
+		virtual void onRender(double lag) {}
 		virtual void onDetach() {}
-
-	protected:
 	};
 }

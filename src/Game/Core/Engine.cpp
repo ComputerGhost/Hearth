@@ -28,6 +28,7 @@ namespace Core
 		}
 
 		std::chrono::duration<double> lag = timer.getLeftoverTime();
+		active_scene->onRender(lag.count());
 		render(lag.count());
 	}
 

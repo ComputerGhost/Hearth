@@ -4,7 +4,7 @@
 
 #include "ShaderType.hpp"
 
-namespace Core
+namespace ResourceTypes
 {
 	class Shader
 	{

@@ -20,6 +20,9 @@ namespace Core
 
 		void tick();
 
+	public:
+		entt::registry registry;
+
 	private:
 
 		void updateComponents(double elapsed);
@@ -29,6 +32,5 @@ namespace Core
 		Renderer renderer;
 		std::unique_ptr<Scene> active_scene;
 
-		entt::registry registry;
 	};
 }

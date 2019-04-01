@@ -4,14 +4,13 @@
 
 #include "Shader.hpp"
 
-namespace Core
+namespace ResourceTypes
 {
 	class ShaderProgram
 	{
 	public:
 		ShaderProgram();
 		ShaderProgram(const ShaderProgram &) = delete;
-		ShaderProgram(ShaderProgram &&);
 		~ShaderProgram();
 
 		void attachShader(const Shader &shader);
@@ -23,6 +22,4 @@ namespace Core
 	private:
 		GLuint id;
 	};
-
-	ShaderProgram getDefaultShaderProgram();
 }

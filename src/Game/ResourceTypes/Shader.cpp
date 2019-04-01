@@ -2,7 +2,7 @@
 
 #include "Shader.hpp"
 
-namespace Core
+namespace ResourceTypes
 {
 	Shader::Shader(ShaderType type, const char *source)
 	{

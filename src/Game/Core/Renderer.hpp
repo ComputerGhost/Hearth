@@ -1,22 +1,14 @@
 #pragma once
 
-#include <glad/glad.h>
-
-#include "ShaderProgram.hpp"
-
 namespace Core
 {
 	class Renderer
 	{
 	public:
-		Renderer();
+		Renderer() = default;
+		Renderer(const Renderer &) = delete;
 
-		void render(double elapsed_time);
+		void render(double lag);
 
-	private:
-		// temporary junk while we test stuff out
-		GLuint vertex_array_id;
-		GLuint vertex_buffer;
-		ShaderProgram program;
 	};
 }
