@@ -21,7 +21,7 @@ namespace Core
 		// Uses up time. Returns false if none left to use.
 		bool useTime();
 
-		double getLeftoverTime() const;
+		Clock::duration getLeftoverTime() const;
 
 	private:
 		Clock::time_point previous_time;

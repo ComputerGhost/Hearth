@@ -31,9 +31,8 @@ namespace Core
 		return true;
 	}
 
-	double EngineTimer::getLeftoverTime() const
+	EngineTimer::Clock::duration EngineTimer::getLeftoverTime() const
 	{
-		using namespace std::chrono;
-		return duration_cast<milliseconds>(leftover_time).count() * 0.001;
+		return leftover_time;
 	}
 }
