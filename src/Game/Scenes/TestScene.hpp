@@ -1,6 +1,7 @@
 #pragma once
 
 #include <glad/glad.h>
+#include <HearthLib/FileBundle.hpp>
 
 #include "../Core/Scene.hpp"
 #include "../ResourceTypes/ShaderProgram.hpp"
@@ -20,5 +21,7 @@ namespace Scenes
 		ResourceTypes::ShaderProgram program;
 		GLuint vertex_array_id;
 		GLuint vertex_buffer;
+
+		HearthLib::FileBundle assets{ "shaders.bundle" };
 	};
 }

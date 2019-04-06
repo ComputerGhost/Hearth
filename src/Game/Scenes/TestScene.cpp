@@ -3,19 +3,6 @@
 
 namespace
 {
-	static const char *default_fragment_shader =
-		"#version 330 core\n"
-		"out vec3 color;\n"
-		"void main(){\n"
-		" color = vec3(1,0,0);\n"
-		"}";
-	static const char *default_vertex_shader =
-		"#version 330 core\n"
-		"layout(location = 0) in vec3 vertexPosition_modelspace;\n"
-		"void main(){\n"
-		" gl_Position.xyz = vertexPosition_modelspace;\n"
-		" gl_Position.w = 1.0;\n"
-		"}";
 	static const GLfloat vertex_buffer_data[] = {
 		-1.0f, -1.0f, 0.0f,
 		1.0f, -1.0f, 0.0f,
@@ -31,8 +18,17 @@ namespace Scenes
 
 	void TestScene::initialize()
 	{
-		ResourceTypes::Shader fragment{ ResourceTypes::ShaderType::Fragment, default_fragment_shader };
-		ResourceTypes::Shader vertex{ ResourceTypes::ShaderType::Vertex, default_vertex_shader };
+		int length = static_cast<int>(assets.open("test.frag"));
+		std::unique_ptr<char[]> code{ new char[length + 1] };
+		assets.getStream().read(code.get(), length);
+		code.get()[length] = '\0';
+		ResourceTypes::Shader fragment{ ResourceTypes::ShaderType::Fragment, code.get() };
+
+		length = static_cast<int>(assets.open("test.vert"));
+		code.reset(new char[length + 1]);
+		assets.getStream().read(code.get(), length);
+		code.get()[length] = '\0';
+		ResourceTypes::Shader vertex{ ResourceTypes::ShaderType::Vertex, code.get() };
 
 		program.attachShader(vertex);
 		program.attachShader(fragment);

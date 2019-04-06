@@ -15,6 +15,15 @@ namespace ResourceTypes
 
 		glShaderSource(id, 1, &source, NULL);
 		glCompileShader(id);
+
+		GLint status;
+		glGetShaderiv(id, GL_COMPILE_STATUS, &status);
+		if (status == GL_FALSE) {
+			glGetShaderiv(id, GL_INFO_LOG_LENGTH, &status);
+			auto entry = new char[status];
+			glGetShaderInfoLog(id, status, &status, entry);
+			delete[] entry;
+		}
 	}
 
 	Shader::~Shader()
