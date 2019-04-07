@@ -1,7 +1,7 @@
 #pragma once
 
+#include <HearthLib/FormatException.hpp>
 #include <algorithm>
-#include "Formats/FormatException.hpp"
 #include "Config.hpp"
 #include "Logging.hpp"
 
@@ -11,9 +11,9 @@
 void ConfigReader::readAll(std::istream &in)
 {
 	try {
-		Formats::IniReader::readAll(in);
+		HearthLib::IniReader::readAll(in);
 	}
-	catch (const Formats::FormatException &ex) {
+	catch (const HearthLib::FormatException &ex) {
 		LOG_ERROR("Config was partially read. The file is invalid at offset %d: %s",
 			ex.where(), ex.what());
 	}

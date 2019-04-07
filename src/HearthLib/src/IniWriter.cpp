@@ -2,12 +2,10 @@
 #include <cstdio>
 #include <memory>
 
-#include "IniWriter.hpp"
+#include "../IniWriter.hpp"
 
-
-namespace Formats
+namespace HearthLib
 {
-
 	IniWriter::IniWriter(std::ostream &out) :
 		out(&out)
 	{

@@ -1,15 +1,12 @@
-
 #include <cassert>
 #include <regex>
 
-#include "FormatException.hpp"
+#include "../FormatException.hpp"
 
-#include "IniReader.hpp"
+#include "../IniReader.hpp"
 
-
-namespace Formats
+namespace HearthLib
 {
-
 	void IniReader::readAll(std::istream &in)
 	{
 		assert(in.good());

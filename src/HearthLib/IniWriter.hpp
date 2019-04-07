@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string_view>
 
-namespace Formats
+namespace HearthLib
 {
 	//
 	// Simple INI format writer.

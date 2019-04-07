@@ -21,12 +21,27 @@
     <ClInclude Include="BinaryReading.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IniReader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IniWriter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FormatException.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\FileBundle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\BinaryReading.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IniReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IniWriter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

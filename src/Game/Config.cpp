@@ -1,6 +1,6 @@
+#include <HearthLib/IniWriter.hpp>
 #include <exception>
 #include <fstream>
-#include "Formats/IniWriter.hpp"
 #include "ConfigReader.hpp"
 #include "Logging.hpp"
 
@@ -47,7 +47,7 @@ void saveConfig()
 		return;
 	}
 
-	Formats::IniWriter writer(f);
+	HearthLib::IniWriter writer(f);
 
 	writer.writeComment("This is a user configuration file.");
 

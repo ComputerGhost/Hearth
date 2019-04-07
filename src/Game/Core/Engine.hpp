@@ -6,8 +6,6 @@
 #include "Renderer.hpp"
 #include "Scene.hpp"
 
-namespace Scenes { class TestScene; }
-
 namespace Core
 {
 	class Engine

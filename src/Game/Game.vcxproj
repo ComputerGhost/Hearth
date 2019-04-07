@@ -117,7 +117,7 @@
       <ObjectFileName>$(IntDir)%(RelativeDir)\</ObjectFileName>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>HearthLib.lib;glad.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -160,6 +160,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>HearthLib.lib;glad.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -170,8 +171,6 @@
     <ClCompile Include="Core\Renderer.cpp" />
     <ClCompile Include="ResourceTypes\Shader.cpp" />
     <ClCompile Include="ResourceTypes\ShaderProgram.cpp" />
-    <ClCompile Include="Formats\IniReader.cpp" />
-    <ClCompile Include="Formats\IniWriter.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Platform\Geometry.cpp" />
     <ClCompile Include="Logging.cpp" />
@@ -190,9 +189,6 @@
     <ClInclude Include="ResourceTypes\Shader.hpp" />
     <ClInclude Include="ResourceTypes\ShaderProgram.hpp" />
     <ClInclude Include="ResourceTypes\ShaderType.hpp" />
-    <ClInclude Include="Formats\FormatException.hpp" />
-    <ClInclude Include="Formats\IniReader.hpp" />
-    <ClInclude Include="Formats\IniWriter.hpp" />
     <ClInclude Include="Platform\Geometry.hpp" />
     <ClInclude Include="Logging.hpp" />
     <ClInclude Include="Platform\Monitor.hpp" />

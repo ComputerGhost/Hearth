@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Formats/IniReader.hpp"
+#include <HearthLib/IniReader.hpp>
 
 //
 // Assists in reading in a configuration file.
 // Prefer to call loadConfig in Config instead.
 //
-class ConfigReader : private Formats::IniReader
+class ConfigReader : private HearthLib::IniReader
 {
 public:
 

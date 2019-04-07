@@ -3,9 +3,8 @@
 #include <iostream>
 #include <string>
 
-namespace Formats
+namespace HearthLib
 {
-
 	//
 	// This is a simple INI format reader.
 	// It does not support escape sequences nor additional features.
