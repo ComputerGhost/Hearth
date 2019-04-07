@@ -1,8 +1,8 @@
 #include <HearthLib/IniWriter.hpp>
+#include <HearthLib/Logging.hpp>
 #include <exception>
 #include <fstream>
 #include "ConfigReader.hpp"
-#include "Logging.hpp"
 
 #include "Config.hpp"
 

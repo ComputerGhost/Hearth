@@ -1,8 +1,8 @@
 #include <GLFW/glfw3.h>
+#include <HearthLib/Logging.hpp>
 #include <cassert>
 #include <map>
 
-#include "../Logging.hpp"
 #include "Monitor.hpp"
 
 #include "Platform.hpp"

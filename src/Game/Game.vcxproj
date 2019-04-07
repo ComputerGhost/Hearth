@@ -173,7 +173,6 @@
     <ClCompile Include="ResourceTypes\ShaderProgram.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Platform\Geometry.cpp" />
-    <ClCompile Include="Logging.cpp" />
     <ClCompile Include="Platform\Monitor.cpp" />
     <ClCompile Include="Platform\Platform.cpp" />
     <ClCompile Include="Platform\Window.cpp" />
@@ -190,10 +189,10 @@
     <ClInclude Include="ResourceTypes\ShaderProgram.hpp" />
     <ClInclude Include="ResourceTypes\ShaderType.hpp" />
     <ClInclude Include="Platform\Geometry.hpp" />
-    <ClInclude Include="Logging.hpp" />
     <ClInclude Include="Platform\Monitor.hpp" />
     <ClInclude Include="Platform\Platform.hpp" />
     <ClInclude Include="Platform\Window.hpp" />
+    <ClInclude Include="Scenes\SplashScene.hpp" />
     <ClInclude Include="Scenes\TestScene.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

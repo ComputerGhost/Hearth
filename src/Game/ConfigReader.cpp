@@ -1,9 +1,9 @@
 #pragma once
 
 #include <HearthLib/FormatException.hpp>
+#include <HearthLib/Logging.hpp>
 #include <algorithm>
 #include "Config.hpp"
-#include "Logging.hpp"
 
 #include "ConfigReader.hpp"
 

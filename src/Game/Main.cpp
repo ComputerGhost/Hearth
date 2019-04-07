@@ -1,3 +1,4 @@
+#include <HearthLib/Logging.hpp>
 #include <glad/glad.h>
 #include <cassert>
 #include <exception>
@@ -7,7 +8,6 @@
 #include "Platform/Window.hpp"
 #include "Scenes/TestScene.hpp"
 #include "Config.hpp"
-#include "Logging.hpp"
 
 int main()
 {

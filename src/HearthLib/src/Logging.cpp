@@ -4,7 +4,7 @@
 #include <chrono>
 #include <string>
 
-#include "Logging.hpp"
+#include "../Logging.hpp"
 
 namespace
 {

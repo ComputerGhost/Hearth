@@ -146,6 +146,7 @@
     <ClCompile Include="src\IniWriter.cpp" />
     <ClCompile Include="src\BinaryReading.cpp" />
     <ClCompile Include="src\FileBundle.cpp" />
+    <ClCompile Include="src\Logging.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileBundle.hpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="FormatException.hpp" />
     <ClInclude Include="IniReader.hpp" />
     <ClInclude Include="IniWriter.hpp" />
+    <ClInclude Include="Logging.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
