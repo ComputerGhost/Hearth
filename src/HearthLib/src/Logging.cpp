@@ -6,21 +6,18 @@
 
 #include "../Logging.hpp"
 
-namespace
+namespace HearthLib
 {
 	void logMessage(const char *level, const char *format, va_list args);
-}
 
-void logMessage(const char *level, const char *format, ...)
-{
-	va_list args;
-	va_start(args, format);
-	logMessage(level, format, args);
-	va_end(args);
-}
+	void logMessage(const char *level, const char *format, ...)
+	{
+		va_list args;
+		va_start(args, format);
+		logMessage(level, format, args);
+		va_end(args);
+	}
 
-namespace
-{
 	void logMessage(const char *level, const char *format, va_list args)
 	{
 		// Get the current elapsed time in seconds, with millisecond precision
