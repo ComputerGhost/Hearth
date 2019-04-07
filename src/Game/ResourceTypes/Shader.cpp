@@ -1,4 +1,5 @@
-#include <cassert>
+#include <memory>
+#include <stdexcept>
 
 #include "Shader.hpp"
 
@@ -10,19 +11,22 @@ namespace ResourceTypes
 			id = glCreateShader(GL_FRAGMENT_SHADER);
 		else if (type == ShaderType::Vertex)
 			id = glCreateShader(GL_VERTEX_SHADER);
-		else
-			assert(false && "The shader type doesn't exist.");
+
+		if (id == 0)
+			throw std::runtime_error("Could not create shader.");
 
 		glShaderSource(id, 1, &source, NULL);
 		glCompileShader(id);
 
+		// Check status and throw an exception if failed.
 		GLint status;
 		glGetShaderiv(id, GL_COMPILE_STATUS, &status);
 		if (status == GL_FALSE) {
-			glGetShaderiv(id, GL_INFO_LOG_LENGTH, &status);
-			auto entry = new char[status];
-			glGetShaderInfoLog(id, status, &status, entry);
-			delete[] entry;
+			GLint length;
+			glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
+			auto log = std::make_unique<char>(length);
+			glGetShaderInfoLog(id, length, &length, log.get());
+			throw std::runtime_error(log.get());
 		}
 	}
 

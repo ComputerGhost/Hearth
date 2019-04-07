@@ -15,6 +15,6 @@ namespace ResourceTypes
 		explicit Shader(ShaderType type, const char *source);
 		~Shader();
 	private:
-		GLuint id;
+		GLuint id = 0;
 	};
 }

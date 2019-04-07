@@ -98,8 +98,5 @@
     <ClInclude Include="ResourceTypes\ShaderType.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Scenes\SplashScene.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

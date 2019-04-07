@@ -192,7 +192,6 @@
     <ClInclude Include="Platform\Monitor.hpp" />
     <ClInclude Include="Platform\Platform.hpp" />
     <ClInclude Include="Platform\Window.hpp" />
-    <ClInclude Include="Scenes\SplashScene.hpp" />
     <ClInclude Include="Scenes\TestScene.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
