@@ -24,7 +24,7 @@ namespace ResourceTypes
 		if (status == GL_FALSE) {
 			GLint length;
 			glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
-			auto log = std::make_unique<char>(length);
+			auto log = std::make_unique<char[]>(length);
 			glGetShaderInfoLog(id, length, &length, log.get());
 			throw std::runtime_error(log.get());
 		}

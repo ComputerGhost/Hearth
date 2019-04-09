@@ -51,4 +51,9 @@ namespace ResourceTypes
 	{
 		glUseProgram(id);
 	}
+
+	GLuint ShaderProgram::getUniformLocation(const char *name)
+	{
+		return glGetUniformLocation(id, name);
+	}
 }

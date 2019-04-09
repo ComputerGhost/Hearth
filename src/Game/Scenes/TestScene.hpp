@@ -21,6 +21,8 @@ namespace Scenes
 		ResourceTypes::ShaderProgram program;
 		GLuint vertex_array_id;
 		GLuint vertex_buffer;
+		GLuint uv_buffer;
+		GLuint texture_id;
 
 		HearthLib::FileBundle assets{ "shaders.bundle" };
 	};

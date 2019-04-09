@@ -19,6 +19,8 @@ namespace ResourceTypes
 		void linkProgram();
 		void useProgram();
 
+		GLuint getUniformLocation(const char *name);
+
 	private:
 		GLuint id;
 	};
