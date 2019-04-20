@@ -9,6 +9,11 @@
 #include "Scenes/TestScene.hpp"
 #include "Config.hpp"
 
+namespace
+{
+	//
+}
+
 int main()
 {
 	try {
@@ -16,13 +21,11 @@ int main()
 		LOG_INFO("Initializing system.");
 		loadConfig();
 
-		Platform::Platform platform;
-
-		Platform::Window window("Hearth", display_config.size);
-		window.setMinimumSize(display_config.min_size);
-		window.setFullscreenSize(display_config.fullscreen_size);
-		window.setFullscreen(display_config.is_fullscreen);
-		window.makeCurrent();
+		Platform::Platform platform("Hearth", display_config.size);
+		Platform::window->setMinimumSize(display_config.min_size);
+		Platform::window->setFullscreenSize(display_config.fullscreen_size);
+		Platform::window->setFullscreen(display_config.is_fullscreen);
+		Platform::window->makeCurrent();
 
 		if (!gladLoadGL())
 			throw std::runtime_error("Unable to initialize OpenGL context.");
@@ -36,14 +39,14 @@ int main()
 		}
 
 		LOG_INFO("Engine is running.");
-		while (!window.shouldClose()) {
+		while (!Platform::window->shouldClose()) {
 			engine.tick();
-			window.swapBuffers();
+			Platform::window->swapBuffers();
 			glfwPollEvents();
 		}
 
-		display_config.size = window.getWindowSize();
-		display_config.is_fullscreen = window.isFullscreen();
+		display_config.size = Platform::window->getWindowSize();
+		display_config.is_fullscreen = Platform::window->isFullscreen();
 
 		saveConfig();
 

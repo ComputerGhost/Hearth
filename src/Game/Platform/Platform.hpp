@@ -1,7 +1,8 @@
 #pragma once
 
-#include "Monitor.hpp"
 #include "Geometry.hpp"
+#include "Monitor.hpp"
+#include "Window.hpp"
 
 namespace Platform
 {
@@ -10,7 +11,7 @@ namespace Platform
 	class Platform
 	{
 	public:
-		Platform();
+		Platform(const char *title, Size size);
 		~Platform();
 	};
 

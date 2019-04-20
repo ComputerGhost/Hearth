@@ -47,7 +47,7 @@ namespace ResourceTypes
 		}
 	}
 
-	void ShaderProgram::useProgram()
+	void ShaderProgram::useProgram() const
 	{
 		glUseProgram(id);
 	}

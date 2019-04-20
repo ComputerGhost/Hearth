@@ -17,7 +17,7 @@ namespace ResourceTypes
 		void detachShader(const Shader &shader);
 
 		void linkProgram();
-		void useProgram();
+		void useProgram() const;
 
 		GLuint getUniformLocation(const char *name);
 

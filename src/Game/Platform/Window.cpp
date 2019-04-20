@@ -2,6 +2,8 @@
 
 namespace Platform
 {
+	WindowPointer window{ nullptr };
+
 	Window::Window(const char *title, Size size) :
 		window_size(size)
 	{
@@ -116,6 +118,13 @@ namespace Platform
 				0, 0, window_size.width, window_size.height,
 				GLFW_DONT_CARE);
 		}
+	}
+
+	Size Window::getFramebufferSize() const
+	{
+		Size size;
+		glfwGetFramebufferSize(window, &size.width, &size.height);
+		return size;
 	}
 
 	bool Window::shouldClose() const

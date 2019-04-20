@@ -1,3 +1,4 @@
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <HearthLib/Logging.hpp>
 #include <cassert>
@@ -33,7 +34,7 @@ namespace Platform
 		}
 	}
 
-	Platform::Platform()
+	Platform::Platform(const char *title, Size size)
 	{
 		if (glfwInit() == GLFW_FALSE)
 			throw std::runtime_error("Could not initialize GLFW.");
@@ -47,10 +48,14 @@ namespace Platform
 			auto mode = glfwGetVideoMode(pointer);
 			nativeResolutions[pointer] = Size(mode->width, mode->height);
 		}
+
+		// And now the window
+		window.reset(new Window(title, size));
 	}
 
 	Platform::~Platform()
 	{
+		window.reset();
 		glfwTerminate();
 	}
 
