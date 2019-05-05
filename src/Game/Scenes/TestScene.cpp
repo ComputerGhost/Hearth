@@ -1,6 +1,6 @@
 #include <glm/gtc/matrix_transform.hpp>
-#include <HearthLib/BinaryReading.hpp>
-#include "../Platform/Platform.hpp"
+#include <Engine/Formats/Binary.hpp>
+#include <Engine/Window.hpp>
 #include "../ResourceTypes/Shader.hpp"
 #include "TestScene.hpp"
 
@@ -30,9 +30,9 @@ namespace
 			throw std::runtime_error("file not found.");
 
 		in.ignore(18);
-		std::uint32_t width = HearthLib::readDWord(in);
+		std::uint32_t width = Hearth::Formats::Binary::readDWord(in);
 		width = ((width & 0xff) << 24) + (((width >> 8) & 0xff) << 16) + (((width >> 16)&0xff) << 8) + ((width >> 24) & 0xff);
-		std::uint32_t height = HearthLib::readDWord(in);
+		std::uint32_t height = Hearth::Formats::Binary::readDWord(in);
 		height = ((height & 0xff) << 24) + (((height >> 8) & 0xff) << 16) + (((height >> 16)&0xff) << 8) + ((height >> 24) & 0xff);
 		in.ignore(4);
 
@@ -98,9 +98,9 @@ namespace Scenes
 
 		program.useProgram();
 
-		auto size = Platform::window->getFramebufferSize();
-		float aspect = static_cast<float>(size.width) / size.height;
-		glViewport(0, 0, size.width, size.height);
+		auto size = Hearth::window->getFramebufferSize();
+		float aspect = static_cast<float>(size.x) / size.y;
+		glViewport(0, 0, size.x, size.y);
 		glm::mat4 projection = glm::perspective(glm::radians(45.0f), aspect, 0.1f, 100.0f);
 		glm::mat4 view = glm::lookAt(
 			glm::vec3(0, 0, 1),

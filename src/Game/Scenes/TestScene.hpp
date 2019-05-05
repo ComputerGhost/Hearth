@@ -1,14 +1,14 @@
 #pragma once
 
 #include <glad/glad.h>
-#include <HearthLib/FileBundle.hpp>
+#include <Engine/Formats/Bundle.hpp>
+#include <Engine/State.hpp>
 
-#include "../Core/Scene.hpp"
 #include "../ResourceTypes/ShaderProgram.hpp"
 
 namespace Scenes
 {
-	class TestScene : public ::Core::Scene
+	class TestScene : public Hearth::State
 	{
 	public:
 		TestScene();
@@ -24,6 +24,6 @@ namespace Scenes
 		GLuint uv_buffer;
 		GLuint texture_id;
 
-		HearthLib::FileBundle assets{ "shaders.bundle" };
+		Hearth::Formats::Bundle assets{ "shaders.bundle" };
 	};
 }

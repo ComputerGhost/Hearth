@@ -1,7 +1,7 @@
 #pragma once
 
-#include <HearthLib/FormatException.hpp>
-#include <HearthLib/Logging.hpp>
+#include <Engine/Formats/FormatException.hpp>
+#include <Engine/Logging.hpp>
 #include <algorithm>
 #include "Config.hpp"
 
@@ -11,9 +11,9 @@
 void ConfigReader::readAll(std::istream &in)
 {
 	try {
-		HearthLib::IniReader::readAll(in);
+		Hearth::Formats::IniReader::readAll(in);
 	}
-	catch (const HearthLib::FormatException &ex) {
+	catch (const Hearth::Formats::FormatException &ex) {
 		LOG_ERROR("Config was partially read. The file is invalid at offset %d: %s",
 			ex.where(), ex.what());
 	}
@@ -60,25 +60,24 @@ void ConfigReader::onDisplayProperty(std::string property, std::string value)
 {
 	using std::max;
 
-	auto& cfg = display_config;
 	if (property == "width") {
-		cfg.size.width = max(cfg.min_size.width, toInt(value));
+		config.window_size.x = max(config.window_size.x, toInt(value));
 	}
 	else if (property == "height") {
-		cfg.size.height = max(cfg.min_size.height, toInt(value));
+		config.window_size.y = max(config.window_size.y, toInt(value));
 	}
 	else if (property == "is_fullscreen") {
-		cfg.is_fullscreen = toBool(value);
+		config.is_fullscreen = toBool(value);
 	}
 	else if (property == "fullscreen_width") {
-		cfg.fullscreen_size.width = toInt(value);
-		if (cfg.fullscreen_size.width != -1 && cfg.fullscreen_size.width > cfg.min_size.width)
-			cfg.fullscreen_size.width = cfg.min_size.width;
+		config.fullscreen_size.x = toInt(value);
+		if (config.fullscreen_size.x != -1 && config.fullscreen_size.x >= config.window_min_size.x)
+			config.fullscreen_size.x = config.window_min_size.x;
 	}
 	else if (property == "fullscreen_height") {
-		cfg.fullscreen_size.height = toInt(value);
-		if (cfg.fullscreen_size.height != -1 && cfg.fullscreen_size.height > cfg.min_size.height)
-			cfg.fullscreen_size.height = cfg.min_size.height;
+		config.fullscreen_size.y = toInt(value);
+		if (config.fullscreen_size.y != -1 && config.fullscreen_size.y >= config.window_min_size.y)
+			config.fullscreen_size.y = config.window_min_size.y;
 	}
 	else {
 		LOG_NOTICE("Skipping unexpected property '%s'.", property.c_str());
@@ -90,9 +89,8 @@ void ConfigReader::onSystemProperty(std::string property, std::string value)
 	using std::max;
 	using std::stoi;
 
-	auto& cfg = system_config;
 	if (property == "user_path")
-		cfg.user_path = value + ((*value.rbegin() == '/') ? "" : "/");
+		config.user_path = value + ((*value.rbegin() == '/') ? "" : "/");
 	else
 		LOG_NOTICE("Skipping unexpected property '%s'.", property.c_str());
 }

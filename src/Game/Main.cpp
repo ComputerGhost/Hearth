@@ -1,53 +1,36 @@
-#include <HearthLib/Logging.hpp>
-#include <glad/glad.h>
+#include <Engine/Window.hpp>
+#include <Engine/Engine.hpp>
+#include <Engine/Logging.hpp>
+#include <Engine/System.hpp>
 #include <cassert>
-#include <exception>
 
-#include "Core/Engine.hpp"
-#include "Platform/Platform.hpp"
-#include "Platform/Window.hpp"
 #include "Scenes/TestScene.hpp"
 #include "Config.hpp"
-
-namespace
-{
-	//
-}
 
 int main()
 {
 	try {
 
-		LOG_INFO("Initializing system.");
+		LOG_INFO("Loading configuration.");
 		loadConfig();
 
-		Platform::Platform platform("Hearth", display_config.size);
-		Platform::window->setMinimumSize(display_config.min_size);
-		Platform::window->setFullscreenSize(display_config.fullscreen_size);
-		Platform::window->setFullscreen(display_config.is_fullscreen);
-		Platform::window->makeCurrent();
+		LOG_INFO("Initializing system.");
+		Hearth::System system("Hearth", config.window_size);
+		Hearth::window->setMinimumSize(config.window_min_size);
+		Hearth::window->setFullscreenSize(config.fullscreen_size);
+		Hearth::window->setFullscreen(config.is_fullscreen);
+		Hearth::window->makeCurrent();
 
-		if (!gladLoadGL())
-			throw std::runtime_error("Unable to initialize OpenGL context.");
-
-		LOG_INFO("Starting Engine.");
-		Core::Engine engine;
-		{
-			auto scene = std::make_unique<Scenes::TestScene>();
-			scene->initialize();
-			engine.setScene(std::move(scene));
-		}
+		LOG_INFO("Starting game.");
+		Hearth::engine->setState(std::make_unique<Scenes::TestScene>());
 
 		LOG_INFO("Engine is running.");
-		while (!Platform::window->shouldClose()) {
-			engine.tick();
-			Platform::window->swapBuffers();
-			glfwPollEvents();
-		}
+		Hearth::engine->run();
 
-		display_config.size = Platform::window->getWindowSize();
-		display_config.is_fullscreen = Platform::window->isFullscreen();
-
+		LOG_INFO("Saving config.");
+		config.window_size = Hearth::window->getWindowSize();
+		config.fullscreen_size = Hearth::window->getFullscreenSize();
+		config.is_fullscreen = Hearth::window->isFullscreen();
 		saveConfig();
 
 		LOG_INFO("Engine is stopped.");
@@ -62,6 +45,5 @@ int main()
 		LOG_ERROR(ex->what());
 		return EXIT_FAILURE;
 	}
-
 	assert(false && "We should never reach this point.");
 }

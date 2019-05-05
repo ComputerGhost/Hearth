@@ -1,5 +1,0 @@
-#include <sstream>
-
-int main()
-{
-}
